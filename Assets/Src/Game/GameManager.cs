@@ -2,6 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main entry point for the game logic
+/// Class Index:
+/// GameManager.cs: Main entry point tying all the game logic together
+/// 
+/// ObjectPool.cs:                  Generic ObjectPool class for IPoolableObjects.
+/// BaseActor.cs                    A base class that every actor that moves around the terrain should inherit from.
+/// Creature.cs                     Logic for the creature / enemy.
+/// Bullet.cs                       Logic for shooting bullets, checking if it hits something, etc.
+/// ParticleEmitter,cs:             A wrapper around the particle system to be pooled and copy particle settings to.
+/// SpawnPoint.cs                   Lightweight logic for updating a spawner.
+/// 
+/// Player.cs:                      Player input / logic.
+/// PlayerCamerea.cs:               Logic for handling the player camera.
+/// PlayerCameraSettings.cs         Data container for camera settings that can be applied to the player camera.
+/// PlayerDataContainer.cs:         Data container for some player stats, as well as the GUI code to display them.
+/// 
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     /// <summary>
@@ -72,9 +90,11 @@ public class GameManager : MonoBehaviour
 
     public float TimeLeft => secondsLeft;
 
+    // paused variables
     private bool _paused = false;
     public bool IsPaused { private set { } get { return _paused; } }
 
+    // timer for displaying a brief text when difficulty has changed
     private const float _difficultyChangeTimer = 2.0f;
     private float _difficultyChangeCounter = -1.0f;
 
@@ -159,6 +179,10 @@ public class GameManager : MonoBehaviour
         AddActiveActor(PlayerData.Player, true);
     }
 
+    /// <summary>
+    /// Pause/unpause the game
+    /// </summary>
+    /// <param name="pause"></param>
     private void Pause(bool pause)
     {
         _paused = pause;
