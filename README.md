@@ -29,16 +29,16 @@ Class Index:
 TerrainEditorMain.cs: Main entry point, tying all the different parts together. 
    
 TerrainInstance.cs:                 Contains all important functionality to generate a terrain  
-TerrainInstanceCreator.cs           Component to add to a game object to instantiate an terrain. 
-TerrainInstanceCellDataContainer.cs The data related to each cell as well as some functionality for manipulation. 
-TerrainInstanceMeshData.cs          Contains the actual mesh data and functionality to manipulate it. 
-TerrainInstanceDataContainer:       Contains functionality to save and load terrain data. 
+TerrainInstanceCreator.cs           Component to add to a game object to instantiate an terrain.  
+TerrainInstanceCellDataContainer.cs The data related to each cell as well as some functionality for manipulation.  
+TerrainInstanceMeshData.cs          Contains the actual mesh data and functionality to manipulate it.  
+TerrainInstanceDataContainer:       Contains functionality to save and load terrain data.  
    
-TerrainEditorCamera.cs:             Handles all camera input. 
-TerrainEditorGui.cs:                All the code to render gui (you could call this the gui view). 
-TerrainEditorGUIDataContainer.cs    The data container the gui is displaying (you could call this the gui model). 
-TerrainEditorGizmo.cs:              Handles the logic for the various terrain editing tools. 
-TerrainEditorPerlinNoiseGenerator:  A simple wrapper for a perlin noise generator. 
+TerrainEditorCamera.cs:             Handles all camera input.  
+TerrainEditorGui.cs:                All the code to render gui (you could call this the gui view).  
+TerrainEditorGUIDataContainer.cs    The data container the gui is displaying (you could call this the gui model).  
+TerrainEditorGizmo.cs:              Handles the logic for the various terrain editing tools.  
+TerrainEditorPerlinNoiseGenerator:  A simple wrapper for a perlin noise generator.  
  
-ComputeBufferContainer.cs: A wrapper around the compute buffer with some extra functionality. 
+ComputeBufferContainer.cs: A wrapper around the compute buffer with some extra functionality.  
 IOUtility.cs: Save/load xml functionality. 
