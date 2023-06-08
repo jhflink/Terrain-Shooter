@@ -499,7 +499,7 @@ public class TerrainEditorMain : MonoBehaviour
             Application.Quit();
 
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
             UnityEditor.EditorApplication.isPaused = true;
 #endif
 
