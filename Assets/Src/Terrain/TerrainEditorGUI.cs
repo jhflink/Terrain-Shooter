@@ -126,12 +126,12 @@ public class TerrainEditorGUI : MonoBehaviour {
                 dataContainer.callbacks[TerrainEditorGUI_IDS.LoadButton]?.Invoke();
 
         // Button to undo last edit to the terrain
-        if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.UndoButton, rightButtonsStartPosition.x - 220.0f, rightButtonsStartPosition.y, 100, 30), TerrainEditorGUI_IDS.UndoButton))
-            dataContainer.callbacks[TerrainEditorGUI_IDS.UndoButton]?.Invoke();
+        //if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.UndoButton, rightButtonsStartPosition.x - 220.0f, rightButtonsStartPosition.y, 100, 30), TerrainEditorGUI_IDS.UndoButton))
+          //  dataContainer.callbacks[TerrainEditorGUI_IDS.UndoButton]?.Invoke();
 
         // Button to redo previous edit to the terrain
-        if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.RedoButton, rightButtonsStartPosition.x - 330.0f, rightButtonsStartPosition.y, 100, 30), TerrainEditorGUI_IDS.RedoButton))
-            dataContainer.callbacks[TerrainEditorGUI_IDS.RedoButton]?.Invoke();
+        //if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.RedoButton, rightButtonsStartPosition.x - 330.0f, rightButtonsStartPosition.y, 100, 30), TerrainEditorGUI_IDS.RedoButton))
+          //  dataContainer.callbacks[TerrainEditorGUI_IDS.RedoButton]?.Invoke();
 
         // Button to generate a new terrain
         if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.GenerateButton, Screen.width * 0.5f - 185, 5, 180, 30), TerrainEditorGUI_IDS.GenerateButtonDesc))
@@ -194,7 +194,7 @@ public class TerrainEditorGUI : MonoBehaviour {
                 dataContainer.callbacks[TerrainEditorGUI_IDS.FlattenMarkedCellsButton]?.Invoke();
             }
 
-            // Button to flatten selected cells
+            // Button to spawn creatures
             if (GUI.Button(dataContainer.FetchGuiRect(TerrainEditorGUI_IDS.SpawnCreatureButton, markedBoxPosition.x + 15.0f, markedBoxPosition.y + 265.0f, 230, 40), TerrainEditorGUI_IDS.SpawnCreateButtonDesc))
             {
                 dataContainer.callbacks[TerrainEditorGUI_IDS.SpawnCreatureButton]?.Invoke();

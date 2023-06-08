@@ -51,7 +51,7 @@ public class PlayerDataContainer : MonoBehaviour
         GUI.Label(new Rect(10.0f, 0.0f, 250.0f, 100.0f), "Health: " + Health);
 
         // controls
-        GUI.Label(new Rect(10.0f, Screen.height - 40.0f, Screen.width-10.0f, 50.0f), "WASD to move. LEFT MOUSE BUTTON to shoot. SPACEBAR to change weapon");
+        GUI.Label(new Rect(10.0f, Screen.height - 40.0f, Screen.width-10.0f, 50.0f), "WASD to move. LEFT MOUSE BUTTON to shoot. SPACEBAR to change weapon. F1 to Enter/Exit edit mode.");
 
         // bullet type
         GUI.Label(new Rect(10.0f, 100.0f, 500.0f, 1000.0f), "Current Weapon: " + Player.CurrentBulletTypeDisplayString);

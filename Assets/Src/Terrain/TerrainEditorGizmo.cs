@@ -255,7 +255,9 @@ public class TerrainEditorGizmo {
 
             bool threasholdReached = false;
             float modscale = Time.deltaTime * 3f;
-            bool increaseTerrain = Input.GetMouseButtonDown(0) ? ITerrainEditorGizmoRepresentation.CurrentRepresentation.ShouldIncrease() : _gizmoData.guiDataContainer.ToolbarIncreaseInt == 1;
+            //bool increaseTerrain = Input.GetMouseButtonDown(0) ? ITerrainEditorGizmoRepresentation.CurrentRepresentation.ShouldIncrease() : _gizmoData.guiDataContainer.ToolbarIncreaseInt == 1;
+            bool increaseTerrain = _gizmoData.guiDataContainer.ToolbarIncreaseInt == 1;
+
             if (!increaseTerrain)
             {
                 _gizmoData.guiDataContainer.ToolbarIncreaseInt = 0;

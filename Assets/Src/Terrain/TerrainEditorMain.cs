@@ -186,6 +186,15 @@ public class TerrainEditorMain : MonoBehaviour
     }
 
     /// <summary>
+    /// Hide feedback layers
+    /// </summary>
+    public void HideTerrainFeedbackAndSelection(bool hide)
+    {
+        _terrainInstanceSelected.Hide = hide;
+        _terrainInstanceFeedback.Hide = hide;
+    }
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="position"></param>
@@ -252,7 +261,7 @@ public class TerrainEditorMain : MonoBehaviour
         _guiDataContainer.callbacks.Add(TerrainEditorGUI_IDS.SpawnCreatureButton, () => {
             List<TerrainInstanceCellDataContainer> spawnCells = null;
             _terrainInstanceMain.CellsFromIndexes(_guiDataContainer.SelectedCells, out spawnCells);
-            Creature.SpawnNext(spawnCells);
+            Creature.SpawnNext(spawnCells, true);
         });
 
         // generate terrain button

@@ -246,8 +246,21 @@ public class GameManager : MonoBehaviour
         // switch between game and terrain editor
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            TerrainManager.RenderGUI = PlayerData.Camera.enabled = !TerrainManager.RenderGUI;
+            TerrainManager.RenderGUI = !TerrainManager.RenderGUI;
+            TerrainManager.TerrainEditorCamera.enabled = TerrainManager.RenderGUI;
+            TerrainManager.HideTerrainFeedbackAndSelection(true);
+            PlayerData.Camera.enabled = !TerrainManager.TerrainEditorCamera.enabled;
             Pause(TerrainManager.RenderGUI);
+        }
+
+        // Update all actors location data
+        for (int i = _activeActors.Count - 1; i > -1; i--)
+        {
+            TerrainInstanceCellDataContainer newCell = TerrainManager.FetchCellFromWorldPositionCallback(_activeActors[i].transform.position);
+
+            bool shouldRemoveActor = BaseActor.UpdateLocationAndApply(_activeActors[i], newCell);
+            if (shouldRemoveActor)
+                _activeActors.RemoveAt(i);
         }
 
         if (_paused)
@@ -274,16 +287,6 @@ public class GameManager : MonoBehaviour
             {
                 _difficultyChangeCounter = -1.0f;
             }
-        }
-       
-        // Update all actors location data
-        for (int i = _activeActors.Count-1; i > -1; i--)
-        {
-            TerrainInstanceCellDataContainer newCell = TerrainManager.FetchCellFromWorldPositionCallback(_activeActors[i].transform.position);
-           
-            bool shouldRemoveActor = BaseActor.UpdateLocationAndApply(_activeActors[i], newCell);
-            if (shouldRemoveActor)
-                _activeActors.RemoveAt(i);
         }
 
         // Update active particle emitters

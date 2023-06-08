@@ -21,7 +21,13 @@ public class TerrainEditorCamera : MonoBehaviour {
 	private List<int> mouseButtons = new List<int>() { 1 };
 
     private void Start() {
-        // set up movement controls
+		if (keys == null)
+			SetUpKeys();
+	}
+
+	public void SetUpKeys()
+    {
+		// set up movement controls
 		keys = new List<(KeyCode, Vector3)>() {
 			(KeyCode.W, Vector3.forward),
 			(KeyCode.A, Vector3.left),
@@ -60,6 +66,7 @@ public class TerrainEditorCamera : MonoBehaviour {
     /// Update physics of camera even if we're in another state
     /// </summary>
     private void Update() {
+
 		// Physics should run even if we're not in the input state of camera,
 		// hence this code being in a general update function
 		velocity = Vector3.Lerp(velocity, Vector3.zero, dampingCoefficient * Time.deltaTime);
@@ -71,6 +78,11 @@ public class TerrainEditorCamera : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public bool isAnyCameraInputActive() {
+
+		// make sure keys are set up
+		if (keys == null)
+			SetUpKeys();
+
 		// check keys
 		foreach (int mouseButton in mouseButtons)
 			if (Input.GetMouseButtonDown(mouseButton) || Input.GetMouseButton(mouseButton) || Input.GetMouseButtonUp(mouseButton))

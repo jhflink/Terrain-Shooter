@@ -100,9 +100,9 @@ public class Creature : BaseActor, IPoolableObject
     /// Spawn one creature on every cell in list
     /// </summary>
     /// <param name="SpawnCells"></param>
-    public static void SpawnNext(List<TerrainInstanceCellDataContainer> SpawnCells) {
+    public static void SpawnNext(List<TerrainInstanceCellDataContainer> SpawnCells, bool pause=false) {
         for (int i = 0; i < SpawnCells.Count; i++) {
-            SpawnNext(SpawnCells[i]);
+            SpawnNext(SpawnCells[i], pause);
         }
     }
 
@@ -110,12 +110,13 @@ public class Creature : BaseActor, IPoolableObject
     /// Spawn creature on cell
     /// </summary>
     /// <param name="SpawnCell"></param>
-    public static void SpawnNext(TerrainInstanceCellDataContainer SpawnCell)
+    public static void SpawnNext(TerrainInstanceCellDataContainer SpawnCell, bool pause=false)
     {
         Creature newCreature = CreaturePool.GetObject();
         newCreature.Spawn(SpawnCell);
         GameManager.Instance.AddActiveActor(newCreature,true);
         ActiveCreatures.Add(newCreature);
+        newCreature.enabled = !pause;
     }
 
     // logical state of create
